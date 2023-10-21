@@ -1,0 +1,1 @@
+This app is simple resume builder that can help you build resumes and CVs by you simply answering some basic questions.
