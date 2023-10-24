@@ -3,9 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+    <title>Online Resume Builder</title>
 </head>
 <body>
-    
+    <div class="container">
+        <header>
+            <h1>Online Resume Builder</h1>
+        </header>
+        <div class="resume-form">
+            <section class="personal-info">
+                <h2>Personal Information</h2>
+                <input type="text" placeholder="Full Name">
+                <input type="text" placeholder="Email">
+                <input type="text" placeholder="Phone Number">
+            </section>
+            <section class="work-experience">
+                <h2>Work Experience</h2>
+                <textarea placeholder="Enter your work experience here..."></textarea>
+            </section>
+            <section class="education">
+                <h2>Education</h2>
+                <textarea placeholder="Enter your education details here..."></textarea>
+            </section>
+        </div>
+        <div class="resume-preview">
+            <h2>Resume Preview</h2>
+            <div class="preview-content">
+                <!-- Resume content will be displayed here -->
+            </div>
+        </div>
+    </div>
 </body>
 </html>
