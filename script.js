@@ -32,11 +32,13 @@ function updatePreview() {
 
     resumePreview.innerHTML = previewHTML;
 }
-
+console.log(window.jsPDF); // Output to the console
+const pdf = new jsPDF();
 const downloadButton = document.getElementById('download-pdf');
+
+
 downloadButton.addEventListener('click', () => {
 // Create a new jsPDF instance
-const pdf = new jsPDF();
 
 // Define the content for the PDF
 const content = `
