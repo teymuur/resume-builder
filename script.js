@@ -32,7 +32,7 @@ function updatePreview() {
 
     resumePreview.innerHTML = previewHTML;
 }
-console.log(window.jsPDF); // Output to the console
+
 const pdf = new jsPDF();
 const downloadButton = document.getElementById('download-pdf');
 
