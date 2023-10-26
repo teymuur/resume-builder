@@ -4,7 +4,7 @@ const phoneInput = document.querySelector('input[placeholder="Phone Number"]');
 const workExperienceTextarea = document.querySelector('textarea[placeholder="Enter your work experience here..."]');
 const educationTextarea = document.querySelector('textarea[placeholder="Enter your education details here..."]');
 const resumePreview = document.querySelector('.preview-content');
-const CounrtyCode = document.querySelector('#countryCode').value;
+const CounrtyCode = document.querySelector('#countryCode')
 // Listen for input events on form elements
 fullNameInput.addEventListener('input', updatePreview);
 emailInput.addEventListener('input', updatePreview);
@@ -23,7 +23,7 @@ function updatePreview() {
     const previewHTML = `
         <h3>${fullName}</h3>
         <p>Email: ${email}</p>
-        <p>Phone: ${CounrtyCode+phone}</p>
+        <p>Phone: ${CounrtyCode.value+phone}</p>
         <h4>Work Experience</h4>
         <p>${workExperience}</p>
         <h4>Education</h4>
@@ -41,18 +41,7 @@ downloadButton.addEventListener('click', () => {
 // Create a new jsPDF instance
 
 // Define the content for the PDF
-const content = `
-    Resume
-    Full Name: ${fullNameInput.value}
-    Email: ${emailInput.value}
-    Phone: ${phoneInput.value}
-    
-    Work Experience:
-    ${workExperienceTextarea.value}
-    
-    Education:
-    ${educationTextarea.value}
-`;
+const content = resumePreview.value;
 
 // Add the content to the PDF
 pdf.text(content, 10, 10);
