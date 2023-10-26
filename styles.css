@@ -55,7 +55,13 @@ input, textarea {
     border: 1px solid #ccc;
     border-radius: 5px;
 }
-
+select{
+    width: 50%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
 .resume-preview {
     margin-top: 20px;
     padding: 20px;
@@ -86,4 +92,18 @@ input, textarea {
     background-color: #4681c0; /* Change color on hover */
     
     
+}
+
+.resume-form {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.resume-form label {
+    margin-right: 10px;
+}
+
+#country-code,
+#phone-number {
+    flex: 1; /* Distribute available space equally */
 }
