@@ -11,19 +11,19 @@ emailInput.addEventListener('input', updatePreview);
 phoneInput.addEventListener('input', updatePreview);
 workExperienceTextarea.addEventListener('input', updatePreview);
 educationTextarea.addEventListener('input', updatePreview);
-
+CounrtyCode.addEventListener('input',updatePreview);
 // Function to update the resume preview
 function updatePreview() {
     const fullName = fullNameInput.value;
     const email = emailInput.value;
-    const phone = phoneInput.value;
+    const phone = CounrtyCode.value+phoneInput.value;
     const workExperience = workExperienceTextarea.value;
     const education = educationTextarea.value;
 
     const previewHTML = `
         <h3>${fullName}</h3>
         <p>Email: ${email}</p>
-        <p>Phone: ${CounrtyCode.value+phone}</p>
+        <p>Phone: ${phone}</p>
         <h4>Work Experience</h4>
         <p>${workExperience}</p>
         <h4>Education</h4>
@@ -41,7 +41,18 @@ downloadButton.addEventListener('click', () => {
 // Create a new jsPDF instance
 
 // Define the content for the PDF
-const content = resumePreview.value;
+const content = `
+    Resume
+    Full Name: ${fullNameInput.value}
+    Email: ${emailInput.value}
+    Phone: ${CounrtyCode.value+phoneInput.value}
+    
+    Work Experience:
+    ${workExperienceTextarea.value}
+    
+    Education:
+    ${educationTextarea.value}
+`;
 
 // Add the content to the PDF
 pdf.text(content, 10, 10);
