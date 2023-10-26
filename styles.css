@@ -68,3 +68,20 @@ input, textarea {
     font-size: 16px;
     color: #333;
 }
+
+#download-pdf {
+    background-color: #007bff; /* Button background color */
+    color: #fff; /* Text color */
+    border: none;
+    border-radius: 50%; /* Makes the button round */
+    padding: 10px 20px; /* Adjust padding as needed */
+    margin-right: 10px; /* Add a right margin */
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Smooth color transition on hover */
+
+    /* Add additional styles for hover state if desired */
+}
+
+#download-pdf:hover {
+    background-color: #0056b3; /* Change color on hover */
+}
