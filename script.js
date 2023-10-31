@@ -42,7 +42,7 @@ downloadButton.addEventListener('click', () => {
 
 // Define the content for the PDF
 const content = `
-    Resume
+    <h1>Resume</h1>
     Full Name: ${fullNameInput.value}
     Email: ${emailInput.value}
     Phone: ${CounrtyCode.value+phoneInput.value}
