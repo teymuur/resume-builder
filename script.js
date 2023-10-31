@@ -41,18 +41,7 @@ downloadButton.addEventListener('click', () => {
 // Create a new jsPDF instance
 
 // Define the content for the PDF
-const content = `
-    <h1>Resume</h1>
-    Full Name: ${fullNameInput.value}
-    Email: ${emailInput.value}
-    Phone: ${CounrtyCode.value+phoneInput.value}
-    
-    Work Experience:
-    ${workExperienceTextarea.value}
-    
-    Education:
-    ${educationTextarea.value}
-`;
+pdf.fromHTML($('.resume-preview').get(0), 10, 10, {'width': 180});
 
 // Add the content to the PDF
 pdf.text(content, 10, 10);
