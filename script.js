@@ -41,10 +41,11 @@ downloadButton.addEventListener('click', () => {
 // Create a new jsPDF instance
 
 // Define the content for the PDF
-pdf.fromHTML(document.querySelector(".preview-content"), 10, 10, {'width': 180});
-
+ pdf.addHTML(document.querySelector(".preview-content"), function () {
+     pdf.save('resume.pdf');
+ });
 // Add the content to the PDF
-pdf.text(content, 10, 10);
+// pdf.text(content, 10, 10);
 
 // Save the PDF with a name (e.g., "resume.pdf")
 pdf.save('resume.pdf');
