@@ -41,12 +41,22 @@ downloadButton.addEventListener('click', () => {
 // Create a new jsPDF instance
 
 // Define the content for the PDF
- pdf.addHTML(document.querySelector(".preview-content"), function () {
-     pdf.save('resume.pdf');
- });
+const content = `
+    Resume
+    Full Name: ${fullNameInput.value}
+    Email: ${emailInput.value}
+    Phone: ${CounrtyCode.value+phoneInput.value}
+    
+    Work Experience:
+    ${workExperienceTextarea.value}
+    
+    Education:
+    ${educationTextarea.value}
+`;
+
 // Add the content to the PDF
-// pdf.text(content, 10, 10);
+pdf.text(content, 10, 10);
 
 // Save the PDF with a name (e.g., "resume.pdf")
-
+pdf.save('resume.pdf');
 });
