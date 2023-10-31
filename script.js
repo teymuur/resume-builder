@@ -41,7 +41,7 @@ downloadButton.addEventListener('click', () => {
 // Create a new jsPDF instance
 
 // Define the content for the PDF
-pdf.fromHTML(document.querySelector(".resume-preview")), 10, 10, {'width': 180});
+pdf.fromHTML(document.querySelector(".preview-content"), 10, 10, {'width': 180});
 
 // Add the content to the PDF
 pdf.text(content, 10, 10);
