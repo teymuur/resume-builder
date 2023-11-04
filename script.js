@@ -55,7 +55,7 @@ const content = `
 `;
 
 // Add the content to the PDF
-pdf.text(content, 10, 10);
+pdf.html(content, 10, 10);
 
 // Save the PDF with a name (e.g., "resume.pdf")
 pdf.save('resume.pdf');
