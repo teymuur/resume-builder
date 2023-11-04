@@ -38,7 +38,6 @@ const downloadButton = document.getElementById('download-pdf');
 
 
 downloadButton.addEventListener('click', () => {
-// Create a new jsPDF instance
 
 // Define the content for the PDF
 const content = `
