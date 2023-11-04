@@ -13,21 +13,56 @@ workExperienceTextarea.addEventListener('input', updatePreview);
 educationTextarea.addEventListener('input', updatePreview);
 CounrtyCode.addEventListener('input',updatePreview);
 // Function to update the resume preview
+const addWorkExperienceButton = document.getElementById('add-work-exp');
+const removeWorkExperienceButton = document.getElementById('remove-work-exp');
+const workExperienceTextarea = document.getElementById('work-experience');
+
+let workExperiences = [];
+
+addWorkExperienceButton.addEventListener('click', () => {
+    workExperiences.push(workExperienceTextarea.value);
+    updatePreview();
+});
+
+removeWorkExperienceButton.addEventListener('click', () => {
+    workExperiences.pop();
+    updatePreview();
+});
+
+// Add and Remove Education
+const addEducationButton = document.getElementById('add-education');
+const removeEducationButton = document.getElementById('remove-education');
+const educationTextarea = document.getElementById('education');
+
+let educations = [];
+
+addEducationButton.addEventListener('click', () => {
+    educations.push(educationTextarea.value);
+    updatePreview();
+});
+
+removeEducationButton.addEventListener('click', () => {
+    educations.pop();
+    updatePreview();
+});
+
+// Function to update the resume preview
 function updatePreview() {
     const fullName = fullNameInput.value;
     const email = emailInput.value;
-    const phone = CounrtyCode.value+phoneInput.value;
-    const workExperience = workExperienceTextarea.value;
-    const education = educationTextarea.value;
+    const phone = CounrtyCode.value + phoneInput.value;
+
+    const workExpHTML = workExperiences.map(exp => `<p>${exp}</p>`).join('');
+    const educationHTML = educations.map(edu => `<p>${edu}</p>`).join('');
 
     const previewHTML = `
         <h3>${fullName}</h3>
         <p>Email: ${email}</p>
         <p>Phone: ${phone}</p>
         <h4>Work Experience</h4>
-        <p>${workExperience}</p>
+        ${workExpHTML}
         <h4>Education</h4>
-        <p>${education}</p>
+        ${educationHTML}
     `;
 
     resumePreview.innerHTML = previewHTML;
