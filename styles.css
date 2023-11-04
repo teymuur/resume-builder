@@ -86,3 +86,6 @@ input,select, textarea {
     
     
 }
+textarea {
+    resize: none;
+  }
