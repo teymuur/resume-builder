@@ -15,7 +15,7 @@ CounrtyCode.addEventListener('input',updatePreview);
 // Function to update the resume preview
 const addWorkExperienceButton = document.getElementById('add-work-exp');
 const removeWorkExperienceButton = document.getElementById('remove-work-exp');
-const workExperienceTextarea = document.getElementById('work-experience');
+
 
 let workExperiences = [];
 
@@ -32,7 +32,6 @@ removeWorkExperienceButton.addEventListener('click', () => {
 // Add and Remove Education
 const addEducationButton = document.getElementById('add-education');
 const removeEducationButton = document.getElementById('remove-education');
-const educationTextarea = document.getElementById('education');
 
 let educations = [];
 
