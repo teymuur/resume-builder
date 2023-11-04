@@ -98,18 +98,11 @@ textarea {
     color: #fff;
     border: none;
     border-radius: 5px;
-    padding: 10px 5px;
+    padding: 10px 20px;
     cursor: pointer;
     transition: background-color 0.3s ease;
     display: inline-block;
-    margin-right: 10px;
-}
-.button-container {
-    text-align: center;
-    margin-top: 20px;
-}
 
-button {
-    display: inline-block;
-    margin-right: 10px;
+    text-align: center;
+
 }
