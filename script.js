@@ -51,8 +51,8 @@ function updatePreview() {
     const email = emailInput.value;
     const phone = CounrtyCode.value + phoneInput.value;
 
-    const workExpHTML = workExperiences.map(exp => `${exp}`).join('');
-    const educationHTML = educations.map(edu => `${edu}`).join('');
+    window.workExpHTML = workExperiences.map(exp => `${exp}<br>`).join('');
+    window.educationHTML = educations.map(edu => `${edu}<br>`).join('');
 
     const previewHTML = `
         <h3>${fullName}</h3>
@@ -82,10 +82,10 @@ const content = `
     Phone: ${CounrtyCode.value+phoneInput.value}
     
     Work Experience:
-    ${workExpHTML}
+    ${window.workExpHTML}
     
     Education:
-    ${educationExpHTML}
+    ${window.educationExpHTML}
 `;
 
 // Add the content to the PDF
