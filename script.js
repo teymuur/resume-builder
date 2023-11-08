@@ -20,12 +20,17 @@ const removeWorkExperienceButton = document.getElementById('remove-work-exp');
 let workExperiences = [];
 
 addWorkExperienceButton.addEventListener('click', () => {
-    workExperiences.push(workExperienceTextarea.value);
+    const workExperience = workExperienceTextarea.value;
+    const newLine = '\n';
+    workExperienceTextarea.value += newLine + workExperience;
     updatePreview();
 });
 
 removeWorkExperienceButton.addEventListener('click', () => {
-    workExperiences.pop();
+    const workExperience = workExperienceTextarea.value;
+    const lastLineBreakIndex = workExperience.lastIndexOf('\n');
+    const updatedWorkExperience = workExperience.substring(0, lastLineBreakIndex);
+    workExperienceTextarea.value = updatedWorkExperience;
     updatePreview();
 });
 
