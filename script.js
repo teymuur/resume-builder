@@ -51,17 +51,17 @@ function updatePreview() {
     const email = emailInput.value;
     const phone = CounrtyCode.value + phoneInput.value;
 
-    const workExpHTML = workExperiences.map(exp => `<p>${exp}</p>`).join('');
-    const educationHTML = educations.map(edu => `<p>${edu}</p>`).join('');
+    const workExpHTML = workExperiences.map(exp => `${exp}`).join('');
+    const educationHTML = educations.map(edu => `${edu}`).join('');
 
     const previewHTML = `
         <h3>${fullName}</h3>
         <p>Email: ${email}</p>
         <p>Phone: ${phone}</p>
         <h4>Work Experience</h4>
-        ${workExpHTML}
+        <p>${workExpHTML}</p>
         <h4>Education</h4>
-        ${educationHTML}
+        <p>${educationHTML}</p>
     `;
 
     resumePreview.innerHTML = previewHTML;
@@ -73,6 +73,7 @@ const downloadButton = document.getElementById('download-pdf');
 
 downloadButton.addEventListener('click', () => {
 
+
 // Define the content for the PDF
 const content = `
     Resume
@@ -81,14 +82,14 @@ const content = `
     Phone: ${CounrtyCode.value+phoneInput.value}
     
     Work Experience:
-    ${workExperienceTextarea.value}
+    ${workExpHTML}
     
     Education:
-    ${educationTextarea.value}
+    ${educationExpHTML}
 `;
 
 // Add the content to the PDF
-pdf.html(content, 10, 10);
+pdf.text(content, 10, 10);
 
 // Save the PDF with a name (e.g., "resume.pdf")
 pdf.save('resume.pdf');
