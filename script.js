@@ -82,14 +82,14 @@ const content = `
     Phone: ${CounrtyCode.value+phoneInput.value}
     
     Work Experience:
-    ${window.workExpHTML.split("<br>").join("\n")}
+    ${window.workExpHTML.split("<br>").join(", ")}
     
     Education:
-    ${window.educationHTML.split("<br>").join("\n")}
+    ${window.educationHTML.split("<br>").join(", ")}
 `;
 
 // Add the content to the PDF
-pdf.html(content, 10, 10);
+pdf.text(content, 10, 10);
 
 // Save the PDF with a name (e.g., "resume.pdf")
 pdf.save('resume.pdf');
