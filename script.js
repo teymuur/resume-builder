@@ -4,20 +4,23 @@ const phoneInput = document.querySelector('input[placeholder="Phone Number"]');
 const workExperienceTextarea = document.querySelector('textarea[placeholder="Enter your work experience here..."]');
 const educationTextarea = document.querySelector('textarea[placeholder="Enter your education details here..."]');
 const resumePreview = document.querySelector('.preview-content');
-const CounrtyCode = document.querySelector('#countryCode')
+const CountryCode = document.querySelector('#countryCode'); // Corrected variable name
+
 // Listen for input events on form elements
 fullNameInput.addEventListener('input', updatePreview);
 emailInput.addEventListener('input', updatePreview);
 phoneInput.addEventListener('input', updatePreview);
-workExperienceTextarea.addEventListener('input', updatePreview);
-educationTextarea.addEventListener('input', updatePreview);
-CounrtyCode.addEventListener('input',updatePreview);
+CountryCode.addEventListener('input', updatePreview); // Corrected variable name
+
 // Function to update the resume preview
 const addWorkExperienceButton = document.getElementById('add-work-exp');
 const removeWorkExperienceButton = document.getElementById('remove-work-exp');
-const educationType = document.getElementById('educationType')
+const educationType = document.getElementById('educationType');
 
 let workExperiences = [];
+let educations = [];
+let workExperienceHTML = '';
+let educationHTML = '';
 
 addWorkExperienceButton.addEventListener('click', () => {
     workExperiences.push(workExperienceTextarea.value);
@@ -34,12 +37,10 @@ removeWorkExperienceButton.addEventListener('click', () => {
 const addEducationButton = document.getElementById('add-education');
 const removeEducationButton = document.getElementById('remove-education');
 
-let educations = [];
-
 addEducationButton.addEventListener('click', () => {
-    educations.push(educationType.value+": "+educationTextarea.value);
+    educations.push(educationType.value + ": " + educationTextarea.value);
     updatePreview();
-    educationTextarea.value ="";
+    educationTextarea.value = "";
 });
 
 removeEducationButton.addEventListener('click', () => {
@@ -47,14 +48,14 @@ removeEducationButton.addEventListener('click', () => {
     updatePreview();
 });
 
-let workExperienceHTML = '';
-let educationHTML = '';
 // Function to update the resume preview
 function updatePreview() {
     const fullName = fullNameInput.value;
     const email = emailInput.value;
-    const phone = CounrtyCode.value + phoneInput.value;
+    const phone = CountryCode.value + phoneInput.value;
 
+    workExperienceHTML = ''; // Reset the content
+    educationHTML = ''; // Reset the content
 
     workExperiences.forEach((experience) => {
         workExperienceHTML += `${experience}<br>`;
@@ -62,11 +63,7 @@ function updatePreview() {
 
     educations.forEach((education) => {
         educationHTML += `${education}<br>`;
-        console.log(education)
     });
-
-    // Displaying education type along with the details in the preview
-
 
     const previewHTML = `
         <h3>${fullName}</h3>
@@ -81,30 +78,25 @@ function updatePreview() {
     resumePreview.innerHTML = previewHTML;
 }
 
+// Assuming you have jsPDF imported and available
+
 const pdf = new jsPDF();
 const downloadButton = document.getElementById('download-pdf');
 
-
 downloadButton.addEventListener('click', () => {
+    const content = `
+        Resume
+        Full Name: ${fullNameInput.value}
+        Email: ${emailInput.value}
+        Phone: ${CountryCode.value + phoneInput.value}
+        
+        Work Experience:
+        ${workExperienceHTML.split("<br>").join("\n        ")}
+        
+        Education:
+        ${educationHTML.split("<br>").join("\n        ")}
+    `;
 
-// Define the content for the PDF
-
-const content = `
-    Resume
-    Full Name: ${fullNameInput.value}
-    Email: ${emailInput.value}
-    Phone: ${CounrtyCode.value+phoneInput.value}
-    
-    Work Experience:
-    ${window.workExpHTML.split("<br>").join("\n    ")}
-    
-    Education:
-    ${window.educationHTML.split("<br>").join("\n    ")}
-`;
-
-// Add the content to the PDF
-pdf.text(content, 10, 10);
-
-// Save the PDF with a name (e.g., "resume.pdf")
-pdf.save('resume.pdf');
+    pdf.text(content, 10, 10);
+    pdf.save('resume.pdf');
 });
