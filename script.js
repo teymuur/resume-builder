@@ -52,18 +52,28 @@ function updatePreview() {
     const fullName = fullNameInput.value;
     const email = emailInput.value;
     const phone = CounrtyCode.value + phoneInput.value;
+    const educationType = document.getElementById('educationType').value;
 
-    window.workExpHTML = workExperiences.map(exp => `${exp}<br>`).join('');
-    window.educationHTML = educations.map(edu => `${edu}<br>`).join('');
+    let workExperienceHTML = '<h4>Work Experience</h4>';
+    let educationHTML = '<h4>Education</h4>';
+
+    workExperiences.forEach((experience) => {
+        workExperienceHTML += `<p>${experience}</p>`;
+    });
+
+    educations.forEach((education) => {
+        educationHTML += `<p>${education}</p>`;
+    });
+
+    // Displaying education type along with the details in the preview
+    const educationDetails = `<p><strong>${educationType}</strong>: ${educationHTML}</p>`;
 
     const previewHTML = `
         <h3>${fullName}</h3>
         <p>Email: ${email}</p>
         <p>Phone: ${phone}</p>
-        <h4>Work Experience</h4>
-        ${workExpHTML}
-        <h4>Education</h4>
-        ${educationHTML}
+        ${workExperienceHTML}
+        ${educationDetails}
     `;
 
     resumePreview.innerHTML = previewHTML;
