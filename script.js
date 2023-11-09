@@ -82,10 +82,10 @@ const content = `
     Phone: ${CounrtyCode.value+phoneInput.value}
     
     Work Experience:
-    ${window.workExpHTML.split("<br>".join("\n"))}
+    ${window.workExpHTML.split("<br>").join("\n")}
     
     Education:
-    ${window.educationHTML.split("<br>".join("\n"))}
+    ${window.educationHTML.split("<br>").join("\n")}
 `;
 
 // Add the content to the PDF
