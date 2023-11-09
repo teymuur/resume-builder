@@ -62,6 +62,7 @@ function updatePreview() {
 
     educations.forEach((education) => {
         educationHTML += `${education}<br>`;
+        console.log(education)
     });
 
     // Displaying education type along with the details in the preview
