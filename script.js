@@ -22,6 +22,7 @@ let workExperiences = [];
 addWorkExperienceButton.addEventListener('click', () => {
     workExperiences.push(workExperienceTextarea.value);
     updatePreview();
+    workExperienceTextarea.value = "";
 });
 
 removeWorkExperienceButton.addEventListener('click', () => {
@@ -38,6 +39,7 @@ let educations = [];
 addEducationButton.addEventListener('click', () => {
     educations.push(educationTextarea.value);
     updatePreview();
+    educationTextarea.value ="";
 });
 
 removeEducationButton.addEventListener('click', () => {
@@ -82,10 +84,10 @@ const content = `
     Phone: ${CounrtyCode.value+phoneInput.value}
     
     Work Experience:
-    ${window.workExpHTML.split("<br>").join(", ")}
+    ${window.workExpHTML.split("<br>").join("\n    ")}
     
     Education:
-    ${window.educationHTML.split("<br>").join(", ")}
+    ${window.educationHTML.split("<br>").join("\n    ")}
 `;
 
 // Add the content to the PDF
