@@ -55,18 +55,28 @@ function updatePreview() {
     const fullName = fullNameInput.value;
     const email = emailInput.value;
     const phone = CounrtyCode.value + phoneInput.value;
+    const workExperiences = workExperienceTextarea.value.split('\n'); // Split work experiences into an array
+    const educations = educationTextarea.value.split('\n'); // Split education entries into an array
 
-    window.workExpHTML = workExperiences.map(exp => `${exp}<br>`).join('');
-    window.educationHTML = educations.map(edu => `${edu}<br>`).join('');
+    let workExperienceHTML = '<h4>Work Experience</h4>';
+    let educationHTML = '<h4>Education</h4>';
+
+    // Loop through the work experiences to create separate lines in the preview
+    workExperiences.forEach((experience) => {
+        workExperienceHTML += `<p>${experience}</p>`;
+    });
+
+    // Loop through the education entries to create separate lines in the preview
+    educations.forEach((education) => {
+        educationHTML += `<p>${education}</p>`;
+    });
 
     const previewHTML = `
         <h3>${fullName}</h3>
         <p>Email: ${email}</p>
         <p>Phone: ${phone}</p>
-        <h4>Work Experience</h4>
-        <p>${workExpHTML}</p>
-        <h4>Education</h4>
-        <p>${educationHTML}</p>
+        ${workExperienceHTML}
+        ${educationHTML}
     `;
 
     resumePreview.innerHTML = previewHTML;
@@ -84,15 +94,14 @@ const content = `
     Resume
     Full Name: ${fullNameInput.value}
     Email: ${emailInput.value}
-    Phone: ${CounrtyCode.value+phoneInput.value}
-    
-    Work Experience:
-    ${window.workExpHTML}
-    
-    Education:
-    ${window.educationExpHTML}
-`;
+    Phone: ${CounrtyCode.value}${phoneInput.value}
 
+    Work Experience:
+    ${workExperienceTextarea.value}
+
+    Education:
+    ${educationTextarea.value}
+    `;
 // Add the content to the PDF
 pdf.text(content, 10, 10);
 
