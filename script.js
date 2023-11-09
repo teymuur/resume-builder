@@ -15,7 +15,7 @@ CounrtyCode.addEventListener('input',updatePreview);
 // Function to update the resume preview
 const addWorkExperienceButton = document.getElementById('add-work-exp');
 const removeWorkExperienceButton = document.getElementById('remove-work-exp');
-
+const educationType = document.getElementById('educationType')
 
 let workExperiences = [];
 
@@ -37,7 +37,7 @@ const removeEducationButton = document.getElementById('remove-education');
 let educations = [];
 
 addEducationButton.addEventListener('click', () => {
-    educations.push(educationTextarea.value);
+    educations.push(educationType.value+": "+educationTextarea.value);
     updatePreview();
     educationTextarea.value ="";
 });
@@ -52,7 +52,7 @@ function updatePreview() {
     const fullName = fullNameInput.value;
     const email = emailInput.value;
     const phone = CounrtyCode.value + phoneInput.value;
-    const educationType = document.getElementById('educationType').value;
+
 
     let workExperienceHTML = '<h4>Work Experience</h4>';
     let educationHTML = '<h4>Education</h4>';
@@ -62,7 +62,7 @@ function updatePreview() {
     });
 
     educations.forEach((education) => {
-        educationHTML += `<p><b>${educationType} </b>${education}</p>`;
+        educationHTML += `<p>${education}</p>`;
     });
 
     // Displaying education type along with the details in the preview
