@@ -47,6 +47,8 @@ removeEducationButton.addEventListener('click', () => {
     updatePreview();
 });
 
+let workExperienceHTML = '';
+let educationHTML = '';
 // Function to update the resume preview
 function updatePreview() {
     const fullName = fullNameInput.value;
@@ -54,15 +56,12 @@ function updatePreview() {
     const phone = CounrtyCode.value + phoneInput.value;
 
 
-    let workExperienceHTML = '<h4>Work Experience</h4>';
-    let educationHTML = '<h4>Education</h4>';
-
     workExperiences.forEach((experience) => {
-        workExperienceHTML += `<p>${experience}</p>`;
+        workExperienceHTML += `${experience}<br>`;
     });
 
     educations.forEach((education) => {
-        educationHTML += `<p>${education}</p>`;
+        educationHTML += `${education}<br>`;
     });
 
     // Displaying education type along with the details in the preview
@@ -72,7 +71,9 @@ function updatePreview() {
         <h3>${fullName}</h3>
         <p>Email: ${email}</p>
         <p>Phone: ${phone}</p>
+        <h4>Work Experience</h4>
         ${workExperienceHTML}
+        <h4>Education</h4>
         ${educationHTML}
     `;
 
