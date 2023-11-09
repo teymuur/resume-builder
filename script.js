@@ -62,18 +62,18 @@ function updatePreview() {
     });
 
     educations.forEach((education) => {
-        educationHTML += `<p>${education}</p>`;
+        educationHTML += `<p><b>${educationType} </b>${education}</p>`;
     });
 
     // Displaying education type along with the details in the preview
-    const educationDetails = `<p><strong>${educationType}</strong>: ${educationHTML}</p>`;
+
 
     const previewHTML = `
         <h3>${fullName}</h3>
         <p>Email: ${email}</p>
         <p>Phone: ${phone}</p>
         ${workExperienceHTML}
-        ${educationDetails}
+        ${educationHTML}
     `;
 
     resumePreview.innerHTML = previewHTML;
