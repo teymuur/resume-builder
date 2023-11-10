@@ -60,7 +60,9 @@ input,select, textarea {
     border: 1px solid #ccc;
     border-radius: 5px;
 }
-
+textarea[placeholder="Enter your work experience here..."]{
+    height: 100px;
+}
 .resume-preview {
     margin-top: 20px;
     padding: 20px;
