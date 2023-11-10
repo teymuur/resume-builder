@@ -28,9 +28,15 @@ let workExperienceHTML = '';
 let educationHTML = '';
 
 addWorkExperienceButton.addEventListener('click', () => {
-    workExperiences.push(workExperienceTextarea.value+" since "+workExperienceStart.value+ " until "+workExperienceEnd.value);
+    if(workExperienceStart.value==""){
+        alert("Please enter a start day for your work")
+    }else if (workExperienceEnd.value==""){
+        workExperiences.push(workExperienceTextarea.value+" started "+workExperienceStart.value+ " Still hustling");
+        updatePreview();
+    }else{
+    workExperiences.push(workExperienceTextarea.value+" started "+workExperienceStart.value+ " until "+workExperienceEnd.value);
     updatePreview();
-
+    }
 });
 
 removeWorkExperienceButton.addEventListener('click', () => {
@@ -43,8 +49,17 @@ const addEducationButton = document.getElementById('add-education');
 const removeEducationButton = document.getElementById('remove-education');
 
 addEducationButton.addEventListener('click', () => {
-    educations.push(educationType.value + ": " + educationTextarea.value+" since "+eduStart.value+ " until "+eduEnd.value);
+    if(eduStart.value==""){
+        alert("Please enter a start day for your work")
+    }
+    else if(eduEnd.value == ""){
+        educations.push(educationType.value + ": " + educationTextarea.value+" started "+eduStart.value+ " (Not graduated yet)");
+        updatePreview();
+    }else{
+    educations.push(educationType.value + ": " + educationTextarea.value+" started "+eduStart.value+ " Graduated "+eduEnd.value);
     updatePreview();
+    }
+  
 
 });
 
