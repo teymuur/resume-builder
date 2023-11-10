@@ -7,6 +7,9 @@
 body {
     font-family: Arial, sans-serif;
     background-image: url('bg-image.jpg');
+
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover;
 }
 button {
     display: inline-block;
