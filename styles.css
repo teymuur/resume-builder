@@ -8,7 +8,7 @@ body {
     font-family: Arial, sans-serif;
     background-image: url('bg-image.jpg');
 
-    background-repeat: no-repeat; /* Do not repeat the image */
+
     background-size: cover;
 }
 button {
@@ -53,6 +53,9 @@ h2 {
     margin-bottom: 10px;
     color: #333;
 }
+textarea[placeholder="Enter your work experience here..."]{
+    height: 110px;
+}
 input,select, textarea {
     width: 100%;
     padding: 10px;
@@ -60,9 +63,7 @@ input,select, textarea {
     border: 1px solid #ccc;
     border-radius: 5px;
 }
-textarea[placeholder="Enter your work experience here..."]{
-    height: 100px;
-}
+
 .resume-preview {
     margin-top: 20px;
     padding: 20px;
@@ -110,4 +111,32 @@ textarea {
 
     text-align: center;
 
+}
+@media only screen and (max-width: 620px) {
+    /* For mobile phones: */
+    * {
+        width: 100%;
+    }
+
+    body {
+        height: 100vh; /* Set body height to full viewport height */
+        overflow-y: hidden; /* Hide vertical scrollbar */
+    }
+
+    .container {
+        padding: 10px; /* Adjust padding for smaller screens */
+    }
+
+    section {
+        flex: 100%; /* Take up full width on smaller screens */
+        margin: 0; /* Remove margin on smaller screens */
+    }
+
+    #download-pdf {
+        margin-right: 0; /* Remove right margin on smaller screens */
+    }
+
+    button {
+        margin-right: 0; /* Remove right margin on smaller screens */
+    }
 }
