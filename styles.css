@@ -81,7 +81,7 @@ input,select, textarea {
     border:none;
     border-radius: 12px; 
     padding: 10px 20px; /* Adjust padding as needed */
-    margin-right: 200px; /* Add a right margin */
+    margin-right: 10px; /* Add a right margin */
     cursor: pointer;
     transition: background-color 0.3s ease; /* Smooth color transition on hover */
 
