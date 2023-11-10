@@ -1,8 +1,8 @@
 const fullNameInput = document.querySelector('input[placeholder="Full Name"]');
 const emailInput = document.querySelector('input[placeholder="Email"]');
 const phoneInput = document.querySelector('input[placeholder="Phone Number"]');
-const workExperienceTextarea = document.querySelector('textarea[placeholder="Enter your work experience here..."]');
-const educationTextarea = document.querySelector('textarea[placeholder="Enter your education details here..."]');
+const workExperienceTextarea = document.querySelector('textarea.workplace');
+const educationTextarea = document.querySelector('textarea.education');
 const resumePreview = document.querySelector('.preview-content');
 const CountryCode = document.querySelector('#countryCode'); // Corrected variable name
 

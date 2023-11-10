@@ -53,9 +53,7 @@ h2 {
     margin-bottom: 10px;
     color: #333;
 }
-textarea[placeholder="Enter your work experience here..."]{
-    height: 110px;
-}
+
 input,select, textarea {
     width: 100%;
     padding: 10px;
