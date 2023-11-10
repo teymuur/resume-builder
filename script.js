@@ -25,7 +25,7 @@ let educationHTML = '';
 addWorkExperienceButton.addEventListener('click', () => {
     workExperiences.push(workExperienceTextarea.value);
     updatePreview();
-    workExperienceTextarea.value = "";
+
 });
 
 removeWorkExperienceButton.addEventListener('click', () => {
@@ -40,7 +40,7 @@ const removeEducationButton = document.getElementById('remove-education');
 addEducationButton.addEventListener('click', () => {
     educations.push(educationType.value + ": " + educationTextarea.value);
     updatePreview();
-    educationTextarea.value = "";
+
 });
 
 removeEducationButton.addEventListener('click', () => {
