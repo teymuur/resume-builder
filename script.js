@@ -2,7 +2,12 @@ const fullNameInput = document.querySelector('input[placeholder="Full Name"]');
 const emailInput = document.querySelector('input[placeholder="Email"]');
 const phoneInput = document.querySelector('input[placeholder="Phone Number"]');
 const workExperienceTextarea = document.querySelector('textarea.workplace');
+const workExperienceStart = document.getElementById('startDate')
+const workExperienceEnd = document.getElementById('endDate')
+const gender = document.getElementById('gender');
 const educationTextarea = document.querySelector('textarea.education');
+const eduStart = document.getElementById('eduStartDate')
+const eduEnd = document.getElementById('eduEndDate')
 const resumePreview = document.querySelector('.preview-content');
 const CountryCode = document.querySelector('#countryCode'); // Corrected variable name
 
@@ -11,7 +16,7 @@ fullNameInput.addEventListener('input', updatePreview);
 emailInput.addEventListener('input', updatePreview);
 phoneInput.addEventListener('input', updatePreview);
 CountryCode.addEventListener('input', updatePreview); // Corrected variable name
-
+gender.addEventListener('input',updatePreview)
 // Function to update the resume preview
 const addWorkExperienceButton = document.getElementById('add-work-exp');
 const removeWorkExperienceButton = document.getElementById('remove-work-exp');
@@ -23,7 +28,7 @@ let workExperienceHTML = '';
 let educationHTML = '';
 
 addWorkExperienceButton.addEventListener('click', () => {
-    workExperiences.push(workExperienceTextarea.value);
+    workExperiences.push(workExperienceTextarea.value+" since "+workExperienceStart.value+ " until "+workExperienceEnd.value);
     updatePreview();
 
 });
@@ -38,7 +43,7 @@ const addEducationButton = document.getElementById('add-education');
 const removeEducationButton = document.getElementById('remove-education');
 
 addEducationButton.addEventListener('click', () => {
-    educations.push(educationType.value + ": " + educationTextarea.value);
+    educations.push(educationType.value + ": " + educationTextarea.value+" since "+eduStart.value+ " until "+eduEnd.value);
     updatePreview();
 
 });
@@ -53,7 +58,7 @@ function updatePreview() {
     const fullName = fullNameInput.value;
     const email = emailInput.value;
     const phone = CountryCode.value + phoneInput.value;
-
+    const gender_ = gender.value
     workExperienceHTML = ''; // Reset the content
     educationHTML = ''; // Reset the content
 
@@ -69,6 +74,7 @@ function updatePreview() {
         <h3>${fullName}</h3>
         <p>Email: ${email}</p>
         <p>Phone: ${phone}</p>
+        <p>Gender: ${gender_}</p>
         <h4>Work Experience</h4>
         ${workExperienceHTML}
         <h4>Education</h4>
@@ -87,6 +93,7 @@ downloadButton.addEventListener('click', () => {
     const content = `
         Resume
         Full Name: ${fullNameInput.value}
+        Gender: ${gender.value}
         Email: ${emailInput.value}
         Phone: ${CountryCode.value + phoneInput.value}
         
