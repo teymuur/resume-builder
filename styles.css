@@ -75,7 +75,7 @@ input,select, textarea {
     color: #333;
 }
 
-#download-pdf {
+#download-pdf, #resetButton {
     background-color: #007bff; /* Button background color */
     color: #fff; /* Text color */
     border:none;

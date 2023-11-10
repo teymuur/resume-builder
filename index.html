@@ -17,6 +17,7 @@
                 <h2>Personal Information</h2>
                 <input type="text" placeholder="Full Name">
                 <input type="email" placeholder="Email">
+                <input type="date" min="01-01-1900" id="birthday" max="${getCurrentDate()}" placeholder="Birthday">
                     <select placeholder="select gender" name="gender" id="gender">
                     <option value="Male">Male</option>
                     <option value="Female">Female</option>
@@ -245,9 +246,9 @@
                 <h2>Work Experience</h2>
                 <textarea rows="6" class="workplace"placeholder="Enter your work experience here..."></textarea>
              <label for="startDate">Start Date:</label>
-            <input type="date" id="startDate">
+            <input min="01-01-1900" type="date" id="startDate">
             <label for="endDate">End Date:</label>
-            <input type="date" id="endDate">
+            <input min="01-01-1900" type="date" id="endDate">
                   &emsp;<button id="add-work-exp">   Add </button>
                 <button id="remove-work-exp">Remove</button>
             </section>
@@ -262,9 +263,9 @@
                     <option value="PhD">PhD</option>
                 </select>
                     <label for="eduStartDate">Start Date:</label>
-                    <input type="date" id="eduStartDate">
+                    <input min="01-01-1900" type="date" id="eduStartDate">
                     <label for="eduEndDate">End Date:</label>
-                    <input type="date" id="eduEndDate">
+                    <input min="01-01-1900" type="date" id="eduEndDate">
                   &emsp;<button id="add-education">Add</button>
                 <button id="remove-education">Remove</button>
             </section>
@@ -276,7 +277,7 @@
 
             </div>
         </div><br>
-        <button id="download-pdf">Download PDF</button>
+        <button id="download-pdf">Download PDF</button><button onclick="window.location.reload();" id="resetButton">Reset</button>
     </div>
 
 <script src="script.js"></script>

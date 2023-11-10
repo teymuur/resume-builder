@@ -10,13 +10,14 @@ const eduStart = document.getElementById('eduStartDate')
 const eduEnd = document.getElementById('eduEndDate')
 const resumePreview = document.querySelector('.preview-content');
 const CountryCode = document.querySelector('#countryCode'); // Corrected variable name
-
+const birthday = document.getElementById('birthday')
 // Listen for input events on form elements
 fullNameInput.addEventListener('input', updatePreview);
 emailInput.addEventListener('input', updatePreview);
 phoneInput.addEventListener('input', updatePreview);
 CountryCode.addEventListener('input', updatePreview); // Corrected variable name
 gender.addEventListener('input',updatePreview)
+birthday.addEventListener('input',updatePreview)
 // Function to update the resume preview
 const addWorkExperienceButton = document.getElementById('add-work-exp');
 const removeWorkExperienceButton = document.getElementById('remove-work-exp');
@@ -48,6 +49,23 @@ removeWorkExperienceButton.addEventListener('click', () => {
 const addEducationButton = document.getElementById('add-education');
 const removeEducationButton = document.getElementById('remove-education');
 
+var today = new Date();
+var dd = today.getDate();
+var mm = today.getMonth() + 1; //January is 0!
+var yyyy = today.getFullYear();
+
+if (dd < 10) {
+   dd = '0' + dd;
+}
+
+if (mm < 10) {
+   mm = '0' + mm;
+} 
+today = yyyy + '-' + mm + '-' + dd;
+    birthday.setAttribute("max",today);
+    birthday.setAttribute('min',`1900-01-01`)
+    eduStart.setAttribute('max',today)
+    workExperienceStart.setAttribute('max',today)
 addEducationButton.addEventListener('click', () => {
     if(eduStart.value==""){
         alert("Please enter a start day for your work")
@@ -90,6 +108,7 @@ function updatePreview() {
         <p>Email: ${email}</p>
         <p>Phone: ${phone}</p>
         <p>Gender: ${gender_}</p>
+        <p>Birthday: ${birthday.value}</p>
         <h4>Work Experience</h4>
         ${workExperienceHTML}
         <h4>Education</h4>
@@ -109,6 +128,7 @@ downloadButton.addEventListener('click', () => {
         Resume
         Full Name: ${fullNameInput.value}
         Gender: ${gender.value}
+        Birtday: ${birthday.value}
         Email: ${emailInput.value}
         Phone: ${CountryCode.value + phoneInput.value}
         
