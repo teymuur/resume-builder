@@ -175,3 +175,5 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     }
   });
+
+  document.getElementById("footer-text").value = `Copyright © ${today.getFullYear} Teymur Babayev`;
