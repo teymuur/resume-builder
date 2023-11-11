@@ -68,7 +68,7 @@ today = yyyy + '-' + mm + '-' + dd;
     workExperienceStart.setAttribute('max',today)
 addEducationButton.addEventListener('click', () => {
     if(eduStart.value==""){
-        alert("Please enter a start day for your work")
+        alert("Please enter a start day for your ")
     }
     else if(eduEnd.value == ""){
         educations.push(educationType.value + ": " + educationTextarea.value+" started "+eduStart.value+ " (Not graduated yet)");
@@ -176,4 +176,4 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 
-  document.getElementById("footer-text").value = `Copyright © ${today.getFullYear} Teymur Babayev`;
+  
