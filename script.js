@@ -142,3 +142,36 @@ downloadButton.addEventListener('click', () => {
     pdf.text(content, 10, 10);
     pdf.save('resume.pdf');
 });
+
+// Prevent XSS atacks
+document.addEventListener('DOMContentLoaded', function () {
+    // Get references to the form elements
+    var formElements = [
+      fullNameInput,
+      emailInput,
+      phoneInput,
+      workExperienceTextarea,
+      educationTextarea,
+      
+    ];
+
+    // Add event listeners to form elements
+    formElements.forEach(function (e) {
+      e.addEventListener('input', restrictCharacters);
+    });
+
+    // Function to restrict characters
+    function restrictCharacters(event) {
+      // Get the input value
+      var inputValue = event.target.value;
+
+      // Check if the forbidden characters are present
+      if (inputValue.includes('<') || inputValue.includes('>')) {
+        // If forbidden characters are found, prevent the default behavior
+        event.preventDefault();
+        event.target.value = ""
+        // Optionally, you can alert the user or handle the error in another way
+        alert('Invalid input! Please do not use < or > characters.');
+      }
+    }
+  });
