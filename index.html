@@ -12,6 +12,7 @@
         <header>
             <h1>Online Resume Builder</h1>
         </header>
+        
         <div class="resume-form">
             <section class="personal-info">
                 <h2>Personal Information</h2>
@@ -274,6 +275,57 @@
             </section>
             </section>
         </div>
+        <div class="customization-panel">
+            <h3>Customize Your Resume</h3>
+            
+            <div class="customization-group">
+                <label>Header Color:</label>
+                <input type="color" id="headerColor" value="#333333">
+                <span class="color-preview" id="headerColorPreview"></span>
+            </div>
+            
+            <div class="customization-group">
+                <label>Text Color:</label>
+                <input type="color" id="textColor" value="#333333">
+                <span class="color-preview" id="textColorPreview"></span>
+            </div>
+            
+            <div class="customization-group">
+                <label>Font Family:</label>
+                <select id="fontFamily">
+                    <option value="Arial, sans-serif">Arial</option>
+                    <option value="'Times New Roman', serif">Times New Roman</option>
+                    <option value="'Courier New', monospace">Courier New</option>
+                    <option value="Georgia, serif">Georgia</option>
+                    <option value="'Trebuchet MS', sans-serif">Trebuchet MS</option>
+                    <option value="'Comic Sans MS', sans-serif">Comic Sans MS</option>
+                    <option value="Verdana, sans-serif">Verdana</option>
+                    <option value="Tahoma, sans-serif">Tahoma</option>
+                    <option value="'Lucida Console', monospace">Lucida Console</option>
+                    <option value="'Palatino Linotype', 'Book Antiqua', Palatino, serif">Palatino Linotype</option>
+                    <option value="'Impact', sans-serif">Impact</option>
+                    <option value="'Garamond', serif">Garamond</option>
+                    <option value="'Brush Script MT', cursive">Brush Script MT</option>
+                    <option value="'Helvetica', sans-serif">Helvetica</option>
+                </select>
+            </div>
+            
+            <div class="customization-group">
+                <label>Header Size:</label>
+                <input type="number" id="headerSize" min="16" max="36" value="24" class="font-size-control">px
+            </div>
+            
+            <div class="customization-group">
+                <label>Text Size:</label>
+                <input type="number" id="textSize" min="12" max="24" value="16" class="font-size-control">px
+            </div>
+            
+            <div class="customization-group">
+                <label>Section Spacing:</label>
+                <input type="number" id="sectionSpacing" min="10" max="50" value="20" class="font-size-control">px
+            </div>
+        </div>
+        
         <div class="resume-preview">
             <h2>Resume Preview</h2>
             <div class="preview-content">
